@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sumaar Clinic – Your Smile, Our Passion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --blue-dark: #0a2540;
+      --blue-mid: #1a4a8a;
+      --blue-bright: #2563eb;
+      --blue-light: #dbeafe;
+      --blue-pale: #eff6ff;
+      --white: #ffffff;
+      --off-white: #f8faff;
+      --gray: #64748b;
+      --gray-light: #e2e8f0;
+      --gold-accent: #f59e0b;
+      --text-dark: #0f172a;
+    }
+
+```
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-dark);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gray-light);
+  padding: 0 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+  box-shadow: 0 2px 20px rgba(10,37,64,0.08);
+}
+
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.logo-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--blue-bright), var(--blue-mid));
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  line-height: 1.1;
+}
+.logo-text span { font-size: 0.75rem; font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--gray); display: block; }
+
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+.nav-links a {
+  text-decoration: none; color: var(--text-dark); font-size: 0.92rem; font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--blue-bright); transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--blue-bright); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--blue-bright), var(--blue-mid));
+  color: var(--white) !important;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  font-size: 0.88rem !important;
+  box-shadow: 0 4px 14px rgba(37,99,235,0.35);
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,0.45) !important; }
+.nav-cta::after { display: none !important; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 50%, #1e5ca8 100%);
+  position: relative;
+  display: flex; align-items: center;
+  padding: 100px 5% 60px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 70% 50%, rgba(37,99,235,0.3) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.04) 0%, transparent 50%);
+}
+
+/* decorative circles */
+.hero-deco {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.hero-deco.d1 { width: 600px; height: 600px; top: -200px; right: -100px; }
+.hero-deco.d2 { width: 400px; height: 400px; top: 100px; right: 150px; }
+.hero-deco.d3 { width: 200px; height: 200px; bottom: 50px; right: 400px; background: rgba(255,255,255,0.02); }
+
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 580px;
+  animation: fadeUp 0.9s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #93c5fd;
+  font-size: 0.82rem; font-weight: 500;
+  padding: 6px 16px; border-radius: 50px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(8px);
+}
+.hero-badge::before { content: '✦'; font-size: 0.7rem; }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.hero h1 em { font-style: italic; color: #93c5fd; }
+
+.hero p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--white);
+  color: var(--blue-dark);
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-weight: 600; font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+.btn-outline {
+  border: 2px solid rgba(255,255,255,0.5);
+  color: var(--white);
+  padding: 13px 28px;
+  border-radius: 50px;
+  font-weight: 500; font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+.hero-stats {
+  position: absolute; bottom: 50px; right: 5%;
+  display: flex; gap: 24px;
+  animation: fadeUp 0.9s 0.3s ease both;
+}
+.stat-card {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px 28px;
+  text-align: center;
+  color: var(--white);
+}
+.stat-card .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+  color: #93c5fd;
+}
+.stat-card .label { font-size: 0.78rem; opacity: 0.75; margin-top: 2px; }
+
+/* ─── SECTION COMMONS ─── */
+section { padding: 90px 5%; }
+
+.section-tag {
+  display: inline-block;
+  background: var(--blue-light);
+  color: var(--blue-bright);
+  font-size: 0.78rem; font-weight: 600;
+  padding: 5px 14px; border-radius: 50px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--blue-dark);
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.section-sub {
+  color: var(--gray);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 50px;
+}
+
+/* ─── MARQUEE STRIP ─── */
+.marquee-strip {
+  background: var(--blue-dark);
+  padding: 14px 0;
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex; gap: 0;
+  animation: marquee 20s linear infinite;
+  white-space: nowrap;
+}
+.marquee-item {
+  color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 500;
+  padding: 0 32px;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+.marquee-item span { color: #93c5fd; margin-right: 10px; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ─── WHY US ─── */
+.why-us { background: var(--off-white); }
+.why-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center;
+}
+.why-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.feature-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 28px 24px;
+  border: 1px solid var(--gray-light);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue-bright), #60a5fa);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(10,37,64,0.1); }
+.feature-card:hover::before { transform: scaleX(1); }
+.feature-icon { font-size: 2rem; margin-bottom: 14px; }
+.feature-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--blue-dark); margin-bottom: 6px; }
+.feature-card p { font-size: 0.83rem; color: var(--gray); line-height: 1.6; }
+
+.why-image-wrap {
+  position: relative;
+}
+.why-image-wrap .img-placeholder {
+  width: 100%; height: 420px;
+  background: linear-gradient(135deg, var(--blue-light), #bfdbfe);
+  border-radius: 24px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-size: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.why-image-wrap .img-placeholder::after {
+  content: 'Your Clinic Photo Here';
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem; color: var(--blue-mid);
+  margin-top: 12px;
+}
+.badge-float {
+  position: absolute; bottom: -18px; right: -18px;
+  background: var(--blue-dark);
+  color: var(--white);
+  border-radius: 18px; padding: 18px 24px;
+  box-shadow: 0 10px 30px rgba(10,37,64,0.25);
+}
+.badge-float .num { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #93c5fd; }
+.badge-float .txt { font-size: 0.75rem; opacity: 0.8; }
+
+/* ─── SERVICES ─── */
+.services { background: var(--white); }
+.services-header { text-align: center; }
+.services-header .section-sub { margin: 0 auto 50px; }
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+}
+.service-card {
+  background: var(--off-white);
+  border-radius: 24px;
+  padding: 36px 28px;
+  border: 1px solid var(--gray-light);
+  transition: all 0.3s;
+  cursor: pointer;
+  text-align: left;
+}
+.service-card:hover {
+  background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
+  border-color: transparent;
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(10,37,64,0.2);
+}
+.service-card:hover h3,
+.service-card:hover p,
+.service-card:hover .s-icon { color: var(--white); }
+.service-card:hover .s-link { color: #93c5fd; }
+
+.s-icon { font-size: 2.5rem; margin-bottom: 20px; transition: color 0.3s; }
+.service-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 600;
+  color: var(--blue-dark); margin-bottom: 10px;
+  transition: color 0.3s;
+}
+.service-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; transition: color 0.3s; }
+.s-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--blue-bright); font-size: 0.85rem; font-weight: 600;
+  margin-top: 16px; text-decoration: none; transition: color 0.3s;
+}
+
+/* ─── HOW IT WORKS ─── */
+.process { background: var(--blue-pale); }
+.process-header { text-align: center; }
+.process-header .section-sub { margin: 0 auto 60px; }
+.steps {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  position: relative;
+}
+.steps::before {
+  content: '';
+  position: absolute; top: 40px; left: 12.5%; right: 12.5%; height: 2px;
+  background: linear-gradient(90deg, var(--blue-bright), #93c5fd);
+}
+.step { text-align: center; padding: 0 20px; position: relative; }
+.step-num {
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, var(--blue-bright), var(--blue-mid));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700; color: var(--white);
+  margin: 0 auto 24px;
+  box-shadow: 0 8px 24px rgba(37,99,235,0.35);
+  position: relative; z-index: 1;
+}
+.step h4 { font-size: 1rem; font-weight: 600; color: var(--blue-dark); margin-bottom: 8px; }
+.step p { font-size: 0.83rem; color: var(--gray); line-height: 1.6; }
+
+/* ─── TESTIMONIALS ─── */
+.testimonials { background: var(--white); }
+.test-header { text-align: center; }
+.test-header .section-sub { margin: 0 auto 50px; }
+.test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.test-card {
+  background: var(--off-white);
+  border-radius: 20px; padding: 30px;
+  border: 1px solid var(--gray-light);
+  transition: box-shadow 0.3s;
+}
+.test-card:hover { box-shadow: 0 10px 40px rgba(10,37,64,0.08); }
+.stars { color: var(--gold-accent); font-size: 1rem; margin-bottom: 14px; }
+.test-card blockquote {
+  font-size: 0.92rem; color: var(--text-dark);
+  line-height: 1.7; font-style: italic;
+  margin-bottom: 20px;
+}
+.test-author { display: flex; align-items: center; gap: 12px; }
+.avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-bright), var(--blue-mid));
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-weight: 700; font-size: 1rem;
+}
+.test-name { font-weight: 600; font-size: 0.9rem; color: var(--blue-dark); }
+.test-role { font-size: 0.78rem; color: var(--gray); }
+
+/* ─── APPOINTMENT ─── */
+.appointment {
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
+  position: relative; overflow: hidden;
+}
+.appointment::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.appt-inner {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center;
+}
+.appt-info h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700;
+  color: var(--white); line-height: 1.25; margin-bottom: 16px;
+}
+.appt-info p { color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 28px; }
+.contact-detail {
+  display: flex; align-items: center; gap: 12px;
+  color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 12px;
+}
+.contact-detail .icon {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+
+.appt-form {
+  background: var(--white);
+  border-radius: 24px; padding: 40px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+.appt-form h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; color: var(--blue-dark); margin-bottom: 24px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.82rem; font-weight: 600; color: var(--blue-dark); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 11px 16px;
+  border: 1.5px solid var(--gray-light);
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem; color: var(--text-dark);
+  background: var(--white);
+  transition: border-color 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--blue-bright); }
+.form-group textarea { resize: vertical; min-height: 80px; }
+.form-submit {
+  width: 100%; padding: 14px;
+  background: linear-gradient(135deg, var(--blue-bright), var(--blue-mid));
+  color: var(--white); border: none; border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600; cursor: pointer;
+  margin-top: 6px;
+  box-shadow: 0 6px 20px rgba(37,99,235,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,99,235,0.45); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--blue-dark);
+  padding: 60px 5% 30px;
+}
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 40px; margin-bottom: 30px;
+}
+.footer-logo .logo-text { color: var(--white); }
+.footer-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-top: 12px; }
+.footer-col h5 {
+  font-size: 0.85rem; font-weight: 600; color: var(--white);
+  letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a {
+  text-decoration: none; color: rgba(255,255,255,0.55); font-size: 0.85rem;
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover { color: #93c5fd; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.82rem; color: rgba(255,255,255,0.4);
+}
+.social-links { display: flex; gap: 12px; }
+.social-link {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.6); font-size: 1rem;
+  text-decoration: none; transition: background 0.2s;
+}
+.social-link:hover { background: var(--blue-bright); color: var(--white); }
+
+/* ─── FLOAT BUTTON ─── */
+.float-btn {
+  position: fixed; bottom: 30px; right: 30px; z-index: 999;
+  background: linear-gradient(135deg, var(--blue-bright), var(--blue-mid));
+  color: var(--white); border: none; border-radius: 50px;
+  padding: 14px 24px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; font-weight: 600; cursor: pointer;
+  box-shadow: 0 8px 30px rgba(37,99,235,0.45);
+  display: flex; align-items: center; gap: 8px;
+  animation: pulse 2.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 8px 30px rgba(37,99,235,0.45); }
+  50% { box-shadow: 0 8px 40px rgba(37,99,235,0.7); }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .why-grid, .appt-inner { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .steps::before { display: none; }
+  .test-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .hero-stats { position: static; margin-top: 40px; flex-wrap: wrap; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2rem; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-icon">🦷</div>
+    <div class="logo-text">
+      Sumaar Clinic
+      <span>Dental Care Centre</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#appointment" class="nav-cta">Book Appointment</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="hero-deco d1"></div>
+  <div class="hero-deco d2"></div>
+  <div class="hero-deco d3"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Trusted Dental Care Since 2010</div>
+    <h1>Your Perfect <em>Smile</em> Starts Here</h1>
+    <p>At Sumaar Clinic, we combine advanced dentistry with a gentle touch. From routine check-ups to complete smile transformations — we're with you every step.</p>
+    <div class="hero-btns">
+      <a href="#appointment" class="btn-primary">📅 Book Appointment</a>
+      <a href="#services" class="btn-outline">Explore Services →</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="num">5000+</div>
+      <div class="label">Happy Patients</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">15+</div>
+      <div class="label">Years Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">98%</div>
+      <div class="label">Satisfaction Rate</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <!-- doubled for infinite loop -->
+    <div class="marquee-item"><span>✦</span> General Dentistry</div>
+    <div class="marquee-item"><span>✦</span> Teeth Whitening</div>
+    <div class="marquee-item"><span>✦</span> Dental Implants</div>
+    <div class="marquee-item"><span>✦</span> Invisalign & Braces</div>
+    <div class="marquee-item"><span>✦</span> Root Canal Treatment</div>
+    <div class="marquee-item"><span>✦</span> Smile Makeover</div>
+    <div class="marquee-item"><span>✦</span> Pediatric Dentistry</div>
+    <div class="marquee-item"><span>✦</span> Emergency Care</div>
+    <div class="marquee-item"><span>✦</span> General Dentistry</div>
+    <div class="marquee-item"><span>✦</span> Teeth Whitening</div>
+    <div class="marquee-item"><span>✦</span> Dental Implants</div>
+    <div class="marquee-item"><span>✦</span> Invisalign & Braces</div>
+    <div class="marquee-item"><span>✦</span> Root Canal Treatment</div>
+    <div class="marquee-item"><span>✦</span> Smile Makeover</div>
+    <div class="marquee-item"><span>✦</span> Pediatric Dentistry</div>
+    <div class="marquee-item"><span>✦</span> Emergency Care</div>
+  </div>
+</div>
+
+<!-- WHY US -->
+
+<section class="why-us" id="about">
+  <div class="why-grid">
+    <div>
+      <div class="section-tag">Why Choose Us</div>
+      <h2 class="section-title">Exceptional Dental Care You Can Trust</h2>
+      <p class="section-sub">At Sumaar Clinic, your comfort and confidence are our top priorities. We use state-of-the-art technology to deliver painless, precise, and lasting results.</p>
+      <div class="why-features">
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h4>Award-Winning Care</h4>
+          <p>Recognised for excellence in patient care and dental outcomes.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔬</div>
+          <h4>Advanced Technology</h4>
+          <p>Digital X-rays, 3D scanning, and laser dentistry for precise treatment.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">😌</div>
+          <h4>Pain-Free Experience</h4>
+          <p>Gentle techniques and sedation options for anxious patients.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍⚕️</div>
+          <h4>Expert Specialists</h4>
+          <p>Qualified, experienced dentists committed to your best smile.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-image-wrap">
+      <div class="img-placeholder">🦷</div>
+      <div class="badge-float">
+        <div class="num">15+</div>
+        <div class="txt">Years of Excellence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+  <div class="services-header">
+    <div class="section-tag">Our Services</div>
+    <h2 class="section-title">Complete Dental Care Under One Roof</h2>
+    <p class="section-sub">From preventive care to advanced cosmetic procedures, our team delivers comprehensive solutions tailored to your needs.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="s-icon">🦷</div>
+      <h3>General Dentistry</h3>
+      <p>Routine check-ups, cleanings, fillings, and extractions to keep your teeth healthy and strong for life.</p>
+      <a href="#appointment" class="s-link">Book Now →</a>
+    </div>
+    <div class="service-card">
+      <div class="s-icon">✨</div>
+      <h3>Teeth Whitening</h3>
+      <p>Professional in-office whitening for a brighter, more confident smile — results in just one visit.</p>
+      <a href="#appointment" class="s-link">Book Now →</a>
+    </div>
+    <div class="service-card">
+      <div class="s-icon">🔩</div>
+      <h3>Dental Implants</h3>
+      <p>Permanent tooth replacement that looks and feels completely natural. Restore your smile and confidence.</p>
+      <a href="#appointment" class="s-link">Book Now →</a>
+    </div>
+    <div class="service-card">
+      <div class="s-icon">😁</div>
+      <h3>Cosmetic Dentistry</h3>
+      <p>Veneers, bonding, and smile makeovers to craft the perfect aesthetic smile you've always dreamed of.</p>
+      <a href="#appointment" class="s-link">Book Now →</a>
+    </div>
+    <div class="service-card">
+      <div class="s-icon">🔄</div>
+      <h3>Braces & Invisalign</h3>
+      <p>Straighten your teeth discreetly with clear aligners or traditional orthodontics for all ages.</p>
+      <a href="#appointment" class="s-link">Book Now →</a>
+    </div>
+    <div class="service-card">
+      <div class="s-icon">🚨</div>
+      <h3>Emergency Dental Care</h3>
+      <p>Same-day emergency appointments for toothaches, broken teeth, and urgent dental situations.</p>
+      <a href="#appointment" class="s-link">Book Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section class="process" id="process">
+  <div class="process-header">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">Your Journey to a Perfect Smile</h2>
+    <p class="section-sub">We've made getting great dental care simple, transparent, and stress-free from start to finish.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Book Appointment</h4>
+      <p>Choose a convenient time online or call us. We'll confirm within minutes.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Consultation & Exam</h4>
+      <p>Our dentist performs a thorough examination and discusses your goals.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Personalised Treatment</h4>
+      <p>We create a custom treatment plan designed specifically for your needs.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Smile & Follow-Up</h4>
+      <p>Enjoy your results with ongoing care and free follow-up check-ins.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials" id="testimonials">
+  <div class="test-header">
+    <div class="section-tag">Patient Reviews</div>
+    <h2 class="section-title">What Our Patients Say</h2>
+    <p class="section-sub">Real experiences from real patients who trusted Sumaar Clinic with their smiles.</p>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Absolutely fantastic experience! The team made me feel so comfortable and my teeth have never looked better. I finally have the smile I always wanted."</blockquote>
+      <div class="test-author">
+        <div class="avatar">P</div>
+        <div>
+          <div class="test-name">Priya Sharma</div>
+          <div class="test-role">Teeth Whitening Patient</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"The dental implant procedure was completely painless. Dr. at Sumaar Clinic explained everything clearly. Six months later and I couldn't be happier!"</blockquote>
+      <div class="test-author">
+        <div class="avatar">R</div>
+        <div>
+          <div class="test-name">Rahul Mehta</div>
+          <div class="test-role">Dental Implant Patient</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"My daughter was terrified of dentists, but the staff here were so gentle and patient. She actually looks forward to her appointments now — that says it all!"</blockquote>
+      <div class="test-author">
+        <div class="avatar">A</div>
+        <div>
+          <div class="test-name">Anjali Verma</div>
+          <div class="test-role">Parent of Young Patient</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT FORM -->
+
+<section class="appointment" id="appointment">
+  <div class="appt-inner">
+    <div class="appt-info">
+      <div class="section-tag" style="background:rgba(255,255,255,0.15); color:#93c5fd;">Book a Visit</div>
+      <h2>Ready for Your Best Smile?</h2>
+      <p>Book your appointment today and take the first step towards a healthier, more confident smile. New patients always welcome!</p>
+      <div class="contact-detail">
+        <div class="icon">📞</div>
+        <span>+91 98765 43210</span>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">📧</div>
+        <span>info@sumaarclinic.com</span>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">📍</div>
+        <span>123 Main Street, Your City — 440001</span>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">🕐</div>
+        <span>Mon–Sat: 9:00 AM – 8:00 PM</span>
+      </div>
+    </div>
+
+```
+<div class="appt-form">
+  <h3>Schedule an Appointment</h3>
+  <div class="form-row">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" placeholder="Your first name"/>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" placeholder="Your last name"/>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="+91 XXXXX XXXXX"/>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="you@email.com"/>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Service Needed</label>
+      <select>
+        <option>Select a service</option>
+        <option>General Dentistry / Check-up</option>
+        <option>Teeth Whitening</option>
+        <option>Dental Implants</option>
+        <option>Cosmetic Dentistry / Veneers</option>
+        <option>Braces / Invisalign</option>
+        <option>Root Canal Treatment</option>
+        <option>Emergency Care</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Preferred Date</label>
+      <input type="date"/>
+    </div>
+  </div>
+  <div class="form-group" style="margin-bottom:14px;">
+    <label>Message (Optional)</label>
+    <textarea placeholder="Tell us about your concern or question..."></textarea>
+  </div>
+  <button class="form-submit" onclick="alert('Thank you! We will contact you shortly to confirm your appointment.')">
+    Confirm Appointment →
+  </button>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo logo">
+        <div class="logo-icon">🦷</div>
+        <div class="logo-text">Sumaar Clinic<span>Dental Care Centre</span></div>
+      </div>
+      <p class="footer-desc">Dedicated to delivering exceptional dental care with compassion, technology, and expertise. Your smile is our greatest achievement.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#">General Dentistry</a></li>
+        <li><a href="#">Teeth Whitening</a></li>
+        <li><a href="#">Dental Implants</a></li>
+        <li><a href="#">Cosmetic Dentistry</a></li>
+        <li><a href="#">Braces & Invisalign</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#appointment">Book Appointment</a></li>
+        <li><a href="#">Patient Forms</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="#">📞 +91 98765 43210</a></li>
+        <li><a href="#">📧 info@sumaarclinic.com</a></li>
+        <li><a href="#">📍 123 Main Street, Your City</a></li>
+        <li><a href="#">🕐 Mon–Sat: 9AM – 8PM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sumaar Clinic. All rights reserved.</span>
+    <div class="social-links">
+      <a href="#" class="social-link">f</a>
+      <a href="#" class="social-link">in</a>
+      <a href="#" class="social-link">▶</a>
+      <a href="#" class="social-link">📸</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT BUTTON -->
+
+<button class="float-btn" onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">
+  📅 Book Now
+</button>
+
+</body>
+</html>
