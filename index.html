@@ -126,8 +126,8 @@ ul{list-style:none}
 /* DOCTOR */
 .doctor{padding:7rem 0;background:var(--off)}
 .doctor-grid{display:grid;grid-template-columns:340px 1fr;gap:5rem;align-items:start}
-.doctor-photo-wrap{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:3/4}
-.doctor-photo-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.doctor-photo-wrap{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md);background:#e8f4f4}
+.doctor-photo-wrap img{width:100%;height:auto;display:block;object-fit:contain;object-position:center center;transition:transform .6s;filter:brightness(1.1) contrast(1.06) saturate(1.12)}
 .doctor-photo-wrap:hover img{transform:scale(1.04)}
 .doctor-info .doc-name{font-family:var(--serif);font-size:2.2rem;color:var(--dark);font-weight:700;margin:.5rem 0 .25rem}
 .doctor-info .doc-title{color:var(--teal-500);font-weight:600;font-size:.95rem;letter-spacing:.04em;margin-bottom:1.5rem}
@@ -141,17 +141,19 @@ ul{list-style:none}
 .treatments{padding:7rem 0;background:var(--white)}
 .treatments-head{text-align:center;margin-bottom:3.5rem}
 .treatments-head .section-sub{margin:.75rem auto 0}
-.treat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem}
-.treat-card{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);background:var(--white);transition:transform var(--trans),box-shadow var(--trans);cursor:default}
-.treat-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-md)}
-.treat-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden}
-.treat-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.treat-card:hover .treat-thumb img{transform:scale(1.08)}
-.treat-thumb .emoji-bg{background:var(--teal-50);width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-.treat-body{padding:1.25rem 1.4rem 1.5rem}
-.treat-body h3{font-family:var(--serif);font-size:1.15rem;color:var(--dark);margin-bottom:.4rem}
-.treat-body p{color:var(--muted);font-size:.83rem;line-height:1.65}
-.treat-tag{display:inline-block;background:var(--teal-100);color:var(--teal-700);font-size:.7rem;font-weight:600;letter-spacing:.06em;padding:.25rem .7rem;border-radius:50px;margin-top:.75rem}
+
+.treat-card{border-radius:16px;overflow:hidden;border:1px solid #e2eeee;background:var(--white);transition:transform .3s ease,box-shadow .3s ease;cursor:default;box-shadow:0 3px 16px rgba(10,96,96,.08)}
+.treat-card:hover{transform:translateY(-8px);box-shadow:0 18px 50px rgba(10,96,96,.16);border-color:var(--teal-400)}
+.treat-thumb{height:215px;position:relative;overflow:hidden;background:#f2fafa}
+.treat-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .6s ease}
+.treat-card:hover .treat-thumb img{transform:scale(1.06)}
+.treat-thumb .emoji-bg{background:var(--teal-50);width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem}
+.treat-body{padding:1.3rem 1.5rem 1.6rem}
+.treat-body h3{font-family:var(--serif);font-size:1.18rem;color:var(--dark);margin-bottom:.45rem;font-weight:700}
+.treat-body p{color:var(--muted);font-size:.84rem;line-height:1.7}
+.treat-tag{display:inline-flex;align-items:center;background:var(--teal-100);color:var(--teal-700);font-size:.69rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;margin-top:.9rem;border:1px solid rgba(13,143,143,.18)}
+.treat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+
 
 /* WHY US */
 .why{padding:7rem 0;background:var(--teal-900)}
@@ -238,18 +240,25 @@ footer ul a:hover{color:var(--teal-400)}
 .footer-bottom{max-width:1180px;margin:2rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.8rem;color:rgba(255,255,255,.3)}
 
 /* FLOAT CALL */
-.float-call{position:fixed;bottom:2rem;right:2rem;z-index:9999;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--teal-700),var(--teal-400));display:grid;place-items:center;box-shadow:0 6px 28px rgba(13,143,143,.5);transition:transform var(--trans),box-shadow var(--trans);animation:floatBob 3.5s ease-in-out infinite}
-.float-call:hover{transform:scale(1.12);box-shadow:0 10px 36px rgba(13,143,143,.6);animation:none}
-.float-call svg{width:26px;height:26px;fill:white}
-.float-tooltip{position:absolute;right:70px;background:var(--dark);color:white;font-size:.78rem;font-weight:600;padding:.4rem .9rem;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--trans)}
-.float-call:hover .float-tooltip{opacity:1}
-@keyframes floatBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.float-wa{position:fixed;bottom:2rem;right:1.5rem;z-index:9999;display:flex;align-items:center;gap:.65rem;background:#25d366;color:#fff;font-family:var(--sans);font-size:.95rem;font-weight:700;padding:.75rem 1.4rem .75rem 1rem;border-radius:50px;box-shadow:0 6px 30px rgba(37,211,102,.45);text-decoration:none;transition:transform .25s,box-shadow .25s;animation:waFloat 3s ease-in-out infinite;letter-spacing:.01em;white-space:nowrap}
+.float-wa:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 12px 40px rgba(37,211,102,.6);animation:none}
+.float-wa .wa-icon{width:34px;height:34px;background:rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.float-wa .wa-icon svg{width:20px;height:20px;fill:white}
+.float-wa .wa-text{display:flex;flex-direction:column;line-height:1.2}
+.float-wa .wa-text span:first-child{font-size:.7rem;opacity:.85;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.float-wa .wa-text span:last-child{font-size:.95rem;font-weight:700}
+@keyframes waFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(max-width:480px){.float-wa{bottom:1.2rem;right:1rem;padding:.65rem 1.1rem .65rem .9rem;font-size:.85rem}
+.float-wa .wa-text span:last-child{font-size:.85rem}}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* RESPONSIVE */
+@media(max-width:1100px){.treat-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.treat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.treat-grid{grid-template-columns:1fr}}
 @media(max-width:960px){
   .nav-list{display:none}
   .hamburger{display:flex}
@@ -276,6 +285,18 @@ footer ul a:hover{color:var(--teal-400)}
   .hero-nav{right:1.5rem}
 }
 @media(max-width:400px){.treat-grid{grid-template-columns:1fr}}
+
+/* ADDRESS SECTION */
+.address-section{background:var(--teal-900);padding:3.5rem 1.5rem}
+.address-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.address-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:2rem 1.75rem;display:flex;gap:1.25rem;align-items:flex-start;transition:background var(--trans),border-color var(--trans),transform var(--trans)}
+.address-card:hover{background:rgba(13,143,143,.2);border-color:rgba(13,143,143,.4);transform:translateY(-4px)}
+.addr-icon-wrap{width:56px;height:56px;min-width:56px;background:linear-gradient(135deg,var(--teal-700),var(--teal-400));border-radius:14px;display:grid;place-items:center;box-shadow:0 6px 20px rgba(13,143,143,.3)}
+.addr-details h3{color:var(--white);font-size:1.05rem;font-weight:600;margin-bottom:.4rem}
+.addr-details p{color:rgba(255,255,255,.55);font-size:.87rem;line-height:1.65;margin-bottom:.75rem}
+.addr-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--teal-400);font-size:.85rem;font-weight:600;transition:color var(--trans),gap var(--trans)}
+.addr-link:hover{color:var(--white);gap:.65rem}
+@media(max-width:768px){.address-inner{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -307,9 +328,15 @@ footer ul a:hover{color:var(--teal-400)}
       <div class="logo-mark">
         <svg viewBox="0 0 36 36"><path d="M18 4C12.5 4 8 8.5 8 14c0 4 2.5 7.5 5 10l5 7 5-7c2.5-2.5 5-6 5-10C28 8.5 23.5 4 18 4zm0 13a3 3 0 110-6 3 3 0 010 6z"/></svg>
       </div>
-      <div>
-        <div class="logo-name">Akbani Dental Clinic</div>
-        <div class="logo-sub">Dr. Faisal Akbani · Adilabad</div>
+      <div style="display:flex;align-items:center;gap:.5rem">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <path d="M16 3C12 3 8.5 5.5 7.5 9.5C7 11.5 7.5 13.5 8 15.5C8.5 17.5 8.5 19.5 8 22C7.5 24 7 26.5 8.5 28C9.5 29 11 29.5 12.5 28.5C14 27.5 14.5 25 15 23C15.5 21.5 15.8 21 16 21C16.2 21 16.5 21.5 17 23C17.5 25 18 27.5 19.5 28.5C21 29.5 22.5 29 23.5 28C25 26.5 24.5 24 24 22C23.5 19.5 23.5 17.5 24 15.5C24.5 13.5 25 11.5 24.5 9.5C23.5 5.5 20 3 16 3Z" fill="var(--teal-500)"/>
+          <path d="M11 8.5C11 8.5 9.5 10 9.5 12.5C9.5 14 10.5 15 11.5 15" stroke="var(--teal-200,#b2e0e0)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div>
+          <div class="logo-name">Akbani Dental Clinic</div>
+          <div class="logo-sub">Dr. Faisal Akbani · Adilabad</div>
+        </div>
       </div>
     </a>
     <ul class="nav-list">
@@ -391,7 +418,7 @@ footer ul a:hover{color:var(--teal-400)}
   <div class="feature-strip-inner">
     <div class="feat-item">
       <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-      <div class="feat-text"><strong>Experienced Dentist</strong><span>10+ years of dental expertise</span></div>
+      <div class="feat-text"><strong>Experienced Dentist</strong><span>16+ years of dental expertise</span></div>
     </div>
     <div class="feat-item">
       <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
@@ -415,7 +442,7 @@ footer ul a:hover{color:var(--teal-400)}
         <div class="about-photo-wrap">
           <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=700&q=80" alt="Akbani Dental Clinic">
         </div>
-        <div class="about-float-card"><strong>10+</strong><span>Years of Excellence</span></div>
+        <div class="about-float-card"><strong>16+</strong><span>Years of Excellence</span></div>
       </div>
       <div class="about-text reveal">
         <div class="section-tag">About Our Clinic</div>
@@ -423,7 +450,7 @@ footer ul a:hover{color:var(--teal-400)}
         <p>At Akbani Dental Clinic, we are committed to providing comprehensive oral health care to the entire community of Adilabad. We welcome new patients and offer a warm, comfortable, and friendly environment where your health always comes first.</p>
         <p>Our clinic is equipped with the latest dental technology and managed by Dr. Faisal Akbani — a highly skilled dental surgeon who believes in treating every patient with the same care and precision he would give to his own family.</p>
         <div class="about-stats">
-          <div class="stat-box"><strong>10+</strong><span>Years Experience</span></div>
+          <div class="stat-box"><strong>16+</strong><span>Years Experience</span></div>
           <div class="stat-box"><strong>5,000+</strong><span>Patients Treated</span></div>
           <div class="stat-box"><strong>11</strong><span>Treatments</span></div>
         </div>
@@ -451,7 +478,7 @@ footer ul a:hover{color:var(--teal-400)}
         <div class="doc-points">
           <div class="doc-point">
             <div class="dp-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-            <p>Over <strong>10 years</strong> of hands-on expertise across all major dental disciplines — from routine care to complex implant surgeries.</p>
+            <p>Over <strong>16 years</strong> of hands-on expertise across all major dental disciplines — from routine care to complex implant surgeries.</p>
           </div>
           <div class="doc-point">
             <div class="dp-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
@@ -481,50 +508,128 @@ footer ul a:hover{color:var(--teal-400)}
       <p class="section-sub">Comprehensive dental care under one roof — handled with the latest technology and a gentle touch.</p>
     </div>
     <div class="treat-grid">
+
       <div class="treat-card reveal">
-        <div class="treat-thumb"><img src="https://images.unsplash.com/photo-1598256989022-36cf64a47af7?w=500&q=80" alt="Root Canal" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="emoji-bg" style="display:none">🦷</div></div>
-        <div class="treat-body"><h3>Root Canal Treatment</h3><p>Relieves severe tooth pain and saves your natural tooth with advanced, pain-free procedures.</p><span class="treat-tag">Pain Relief</span></div>
+        <div class="treat-thumb">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffbb2fdc9c0?w=600&q=90" alt="Root Canal Treatment">
+        </div>
+        <div class="treat-body">
+          <h3>Root Canal Treatment</h3>
+          <p>Relieves severe tooth pain and saves your natural tooth with advanced, pain-free procedures.</p>
+          <span class="treat-tag">Pain Relief</span>
+        </div>
       </div>
+
       <div class="treat-card reveal">
-        <div class="treat-thumb"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=500&q=80" alt="Fillings" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="emoji-bg" style="display:none">🪥</div></div>
-        <div class="treat-body"><h3>Teeth Fillings</h3><p>White composite fillings that blend naturally with your teeth, restoring strength and aesthetics.</p><span class="treat-tag">Restorative</span></div>
+        <div class="treat-thumb">
+          <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=90" alt="Teeth Fillings">
+        </div>
+        <div class="treat-body">
+          <h3>Teeth Fillings</h3>
+          <p>White composite fillings that blend naturally with your teeth, restoring strength and aesthetics.</p>
+          <span class="treat-tag">Restorative</span>
+        </div>
       </div>
+
       <div class="treat-card reveal">
-        <div class="treat-thumb"><div class="emoji-bg">😁</div></div>
-        <div class="treat-body"><h3>Dentures</h3><p>Custom full or partial dentures crafted for comfort, natural appearance, and a confident smile.</p><span class="treat-tag">Prosthetic</span></div>
+        <div class="treat-thumb">
+          <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=600&q=90" alt="Dentures">
+        </div>
+        <div class="treat-body">
+          <h3>Dentures</h3>
+          <p>Custom full or partial dentures crafted for comfort, natural appearance, and a confident smile.</p>
+          <span class="treat-tag">Prosthetic</span>
+        </div>
       </div>
+
       <div class="treat-card reveal">
-        <div class="treat-thumb"><img src="https://images.unsplash.com/photo-1588776814546-1ffbb2fdc9c0?w=500&q=80" alt="Implants" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="emoji-bg" style="display:none">🔩</div></div>
-        <div class="treat-body"><h3>Dental Implants</h3><p>Permanent titanium implants that look, feel, and function exactly like natural teeth — a lifetime solution.</p><span class="treat-tag">Implantology</span></div>
+        <div class="treat-thumb">
+          <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?w=600&q=90" alt="Dental Implants">
+        </div>
+        <div class="treat-body">
+          <h3>Dental Implants</h3>
+          <p>Permanent titanium implants that look, feel, and function exactly like natural teeth — a lifetime solution.</p>
+          <span class="treat-tag">Implantology</span>
+        </div>
       </div>
+
       <div class="treat-card reveal">
-        <div class="treat-thumb"><img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=500&q=80" alt="Braces" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="emoji-bg" style="display:none">😬</div></div>
-        <div class="treat-body"><h3>Teeth Braces</h3><p>Metal or ceramic braces to straighten teeth and correct bite issues effectively for all ages.</p><span class="treat-tag">Orthodontics</span></div>
+        <div class="treat-thumb">
+          <img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=600&q=90" alt="Teeth Braces">
+        </div>
+        <div class="treat-body">
+          <h3>Teeth Braces</h3>
+          <p>Metal or ceramic braces to straighten teeth and correct bite issues effectively for all ages.</p>
+          <span class="treat-tag">Orthodontics</span>
+        </div>
       </div>
+
       <div class="treat-card reveal">
-        <div class="treat-thumb"><div class="emoji-bg">✨</div></div>
-        <div class="treat-body"><h3>Clear Aligners</h3><p>Nearly invisible removable aligners — the discreet, comfortable way to straighten your smile.</p><span class="treat-tag">Cosmetic</span></div>
+        <div class="treat-thumb">
+          <img src="https://images.unsplash.com/photo-1598256989022-36cf64a47af7?w=600&q=90" alt="Clear Aligners">
+        </div>
+        <div class="treat-body">
+          <h3>Clear Aligners</h3>
+          <p>Nearly invisible removable aligners — the discreet, comfortable way to straighten your smile.</p>
+          <span class="treat-tag">Cosmetic</span>
+        </div>
       </div>
+
       <div class="treat-card reveal">
-        <div class="treat-thumb"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=500&q=80" alt="Cleaning" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="emoji-bg" style="display:none">🫧</div></div>
-        <div class="treat-body"><h3>Teeth Cleaning</h3><p>Professional scaling and polishing to remove plaque, tartar, and stains for a healthy mouth.</p><span class="treat-tag">Preventive</span></div>
+        <div class="treat-thumb">
+          <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=90" alt="Teeth Cleaning">
+        </div>
+        <div class="treat-body">
+          <h3>Teeth Cleaning</h3>
+          <p>Professional scaling and polishing to remove plaque, tartar, and stains for a healthy mouth.</p>
+          <span class="treat-tag">Preventive</span>
+        </div>
       </div>
+
       <div class="treat-card reveal">
-        <div class="treat-thumb"><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=500&q=80" alt="Crown" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="emoji-bg" style="display:none">👑</div></div>
-        <div class="treat-body"><h3>Tooth Crown</h3><p>Durable porcelain or zirconia crowns to protect damaged teeth and restore full function.</p><span class="treat-tag">Restorative</span></div>
+        <div class="treat-thumb">
+          <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=90" alt="Tooth Crown">
+        </div>
+        <div class="treat-body">
+          <h3>Tooth Crown</h3>
+          <p>Durable porcelain or zirconia crowns to protect damaged teeth and restore full function.</p>
+          <span class="treat-tag">Restorative</span>
+        </div>
       </div>
+
       <div class="treat-card reveal">
-        <div class="treat-thumb"><div class="emoji-bg">🌉</div></div>
-        <div class="treat-body"><h3>Dental Bridges</h3><p>Fixed bridges that replace missing teeth using adjacent teeth as anchors for a complete smile.</p><span class="treat-tag">Prosthetic</span></div>
+        <div class="treat-thumb">
+          <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600&q=90" alt="Dental Bridges">
+        </div>
+        <div class="treat-body">
+          <h3>Dental Bridges</h3>
+          <p>Fixed bridges that replace missing teeth using adjacent teeth as anchors for a complete smile.</p>
+          <span class="treat-tag">Prosthetic</span>
+        </div>
       </div>
+
       <div class="treat-card reveal">
-        <div class="treat-thumb"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&q=80" alt="Extraction" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="emoji-bg" style="display:none">⚕️</div></div>
-        <div class="treat-body"><h3>Tooth Extraction</h3><p>Safe, gentle extractions including wisdom tooth removal with minimal discomfort and fast healing.</p><span class="treat-tag">Surgical</span></div>
+        <div class="treat-thumb">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=90" alt="Tooth Extraction">
+        </div>
+        <div class="treat-body">
+          <h3>Tooth Extraction</h3>
+          <p>Safe, gentle extractions including wisdom tooth removal with minimal discomfort and fast healing.</p>
+          <span class="treat-tag">Surgical</span>
+        </div>
       </div>
+
       <div class="treat-card reveal">
-        <div class="treat-thumb"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=80" alt="Gingivitis" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="emoji-bg" style="display:none">🩺</div></div>
-        <div class="treat-body"><h3>Gingivitis Treatment</h3><p>Targeted gum disease care to stop bleeding, reduce inflammation, and prevent bone loss.</p><span class="treat-tag">Periodontal</span></div>
+        <div class="treat-thumb">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=90" alt="Gingivitis Treatment">
+        </div>
+        <div class="treat-body">
+          <h3>Gingivitis Treatment</h3>
+          <p>Targeted gum disease care to stop bleeding, reduce inflammation, and prevent bone loss.</p>
+          <span class="treat-tag">Periodontal</span>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -542,7 +647,7 @@ footer ul a:hover{color:var(--teal-400)}
         <div class="why-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
         <div class="why-card-body">
           <h3>Experienced Dentist</h3>
-          <p>Dr. Faisal Akbani brings 10+ years of clinical expertise across all major dental fields — ensuring accurate diagnosis and superior results every single visit.</p>
+          <p>Dr. Faisal Akbani brings 16+ years of clinical expertise across all major dental fields — ensuring accurate diagnosis and superior results every single visit.</p>
         </div>
       </div>
       <div class="why-card reveal">
@@ -619,20 +724,7 @@ footer ul a:hover{color:var(--teal-400)}
         <div class="section-tag">Get In Touch</div>
         <h2 class="section-title">Visit Us or<br>Book an Appointment</h2>
         <p class="section-sub">We welcome walk-ins and scheduled appointments. Our friendly team is always happy to help.</p>
-        <div class="c-cards">
-          <div class="c-card">
-            <div class="c-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-            <div class="c-card-body"><strong>Address</strong><span>Beside Apollo Medical, Station Road,<br>Shivaji Chowk, Adilabad, Telangana</span></div>
-          </div>
-          <div class="c-card">
-            <div class="c-card-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.35 1.02-.22 1.12.46 2.34.7 3.58.7.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.2 1.02L6.6 10.8z"/></svg></div>
-            <div class="c-card-body"><strong>Phone</strong><a href="tel:9533957640">9533957640</a></div>
-          </div>
-          <div class="c-card">
-            <div class="c-card-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div>
-            <div class="c-card-body"><strong>Working Hours</strong><span>Monday–Saturday: 9:00 AM – 8:00 PM<br>Sunday: 10:00 AM – 3:00 PM</span></div>
-          </div>
-        </div>
+        
       </div>
       <div class="contact-form-wrap reveal">
         <h3>Book an Appointment</h3>
@@ -670,10 +762,49 @@ footer ul a:hover{color:var(--teal-400)}
   </div>
 </section>
 
-<!-- MAP -->
-<div class="map-wrap">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3789.123!2d78.526!3d19.664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM5JzUwLjQiTiA3OMKwMzEnMzMuNiJF!5e0!3m2!1sen!2sin!4v1234567890" referrerpolicy="no-referrer-when-downgrade"
-    allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Akbani Dental Clinic Location"></iframe>
+<!-- ADDRESS -->
+<div class="address-section">
+  <div class="address-inner">
+    <div class="address-card">
+      <div class="addr-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="white" width="32" height="32"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div class="addr-details">
+        <h3>Find Us Here</h3>
+        <p>Beside Apollo Medical, Station Road,<br>Shivaji Chowk, Adilabad, Telangana</p>
+        <a href="https://share.google/KDH54eWldhPuuU5Zz" target="_blank" rel="noopener" class="addr-link">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Open in Google Maps →
+        </a>
+      </div>
+    </div>
+    <div class="address-card">
+      <div class="addr-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="white" width="32" height="32"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.35 1.02-.22 1.12.46 2.34.7 3.58.7.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.2 1.02L6.6 10.8z"/></svg>
+      </div>
+      <div class="addr-details">
+        <h3>Call / WhatsApp</h3>
+        <p>Available Mon–Sat: 9AM–8PM<br>Sunday: 10AM–3PM</p>
+        <a href="tel:9533957640" class="addr-link">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.35 1.02-.22 1.12.46 2.34.7 3.58.7.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.2 1.02L6.6 10.8z"/></svg>
+          Call: 9533957640
+        </a>
+      </div>
+    </div>
+    <div class="address-card">
+      <div class="addr-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="white" width="32" height="32"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+      </div>
+      <div class="addr-details">
+        <h3>Working Hours</h3>
+        <p>Monday – Saturday<br>9:00 AM – 8:00 PM</p>
+        <a href="https://wa.me/+919533957640" target="_blank" class="addr-link" style="color:#25d366">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- FOOTER -->
@@ -727,10 +858,15 @@ footer ul a:hover{color:var(--teal-400)}
   </div>
 </footer>
 
-<!-- FLOATING CALL -->
-<a href="https://wa.me/+919533957640?text=How%20can%20I%20help%20you" target="_blank" class="float-call" style="background:linear-gradient(135deg,#128c7e,#25d366)">
-  <div class="float-tooltip">Chat on WhatsApp</div>
-  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/+919533957640" target="_blank" rel="noopener" class="float-wa">
+  <div class="wa-icon">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </div>
+  <div class="wa-text">
+    <span>Chat with us</span>
+    <span>How can I help you?</span>
+  </div>
 </a>
 
 <script>
